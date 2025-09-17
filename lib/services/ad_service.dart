@@ -109,11 +109,12 @@ class AdService {
     debugPrint('✅ Google Mobile Ads initialized successfully');
     debugPrint('Adapter status: ${initResult.adapterStatuses}');
 
-    // Simplified configuration - sometimes test device ID can block ads
+    // Configure for better ad loading
     await MobileAds.instance.updateRequestConfiguration(
       RequestConfiguration(
         tagForChildDirectedTreatment: TagForChildDirectedTreatment.unspecified,
         maxAdContentRating: MaxAdContentRating.g,
+        testDeviceIds: _isDevelopment ? ['718BFA251317FB490F9BDBC13751C28B'] : [],
       ),
     );
     debugPrint('🧪 Basic ad configuration applied');

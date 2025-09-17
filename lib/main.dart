@@ -9,6 +9,7 @@ import 'screens/mock_ad_test.dart';
 import 'screens/final_ad_test.dart';
 import 'screens/production_guide.dart';
 import 'screens/dual_banner_test.dart';
+import 'screens/basic_test.dart';
 import 'services/ad_service.dart';
 
 void main() async {
@@ -48,6 +49,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<AdDemoItem> _adTypes = [
+    AdDemoItem(
+      title: 'Basic Test Ad',
+      subtitle: 'Google test ad unit (guaranteed to work)',
+      icon: Icons.science,
+      color: Colors.green,
+      route: '/basic_test',
+    ),
     AdDemoItem(
       title: 'Dual Banner Test',
       subtitle: 'Test both your real AdMob ad units',
@@ -179,6 +187,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void _navigateToAdScreen(String route) {
     Widget screen;
     switch (route) {
+      case '/basic_test':
+        screen = const BasicAdTest();
+        break;
       case '/dual_banner':
         screen = const DualBannerTest();
         break;
